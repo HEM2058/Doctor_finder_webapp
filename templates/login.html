@@ -1,0 +1,32 @@
+{% extends 'base.html'%}
+{% block content %}
+
+
+<center>
+  <h1>Login Form</h1>
+</center>
+<form action="{%  url 'registerdoctor' %}" method="post" class="row g-3 needs-validation" novalidate >
+
+  {% csrf_token %}
+   
+    <div class="col-md-4">
+        <label for="exampleFormControlInput1" class="form-label">Email address</label>
+        <input type="email" class="form-control" name="email" id="exampleFormControlInput1" placeholder="name@example.com">
+      </div>
+      <div class="col-md-4">
+        <label for="exampleFormControlInput1" class="form-label">Password</label>
+        <input type="password" class="form-control" name="password" id="exampleFormControlInput1" placeholder="Hem@123!#">
+      </div>
+
+      <button class="btn btn-primary" type="submit">Submit form</button>
+    
+   <center>
+  {% if msg%}
+    <div class="alert alert-danger" role="alert">
+      {{msg}}
+    </div>
+    {%endif%}
+   </center>
+  </form>
+
+{% endblock %}

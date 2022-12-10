@@ -1,0 +1,209 @@
+{% extends 'base.html'%}
+{% block content %}
+
+
+<center>
+  <h1>Sign up Form</h1>
+</center>
+<form action="{%  url 'registerdoctor' %}" method="post" class="row g-3 needs-validation" novalidate >
+
+  {% csrf_token %}
+    <div class="col-md-4">
+      <label for="validationCustom01" class="form-label">First name</label>
+      <input type="text" class="form-control" name="fname" id="validationCustom01" placeholder="Hem Raj" required>
+    </div>
+    <div class="col-md-4">
+      <label for="validationCustom02" class="form-label">Last name</label>
+      <input type="text" class="form-control" name="lname"  id="validationCustom02" placeholder="Pandey" required>
+    
+    </div>
+    </div>
+    <div class="col-md-4">
+        <label for="exampleFormControlInput1" class="form-label">Email address</label>
+        <input type="email" class="form-control" name="email" id="exampleFormControlInput1" placeholder="name@example.com">
+      </div>
+      <div class="col-md-4">
+        <label for="exampleFormControlInput1" class="form-label">Contact</label>
+        <input type="tel" class="form-control" name="contact" id="exampleFormControlInput1" placeholder="9864766958">
+      </div>
+      <div class="col-md-4">
+        <label for="exampleFormControlInput1" class="form-label">Highest Degree</label>
+        <input type="tel" class="form-control" name="highest_degree" id="exampleFormControlInput1" placeholder="MBBS">
+      </div>
+      <div class="col-md-4">
+        <label for="exampleFormControlInput1" class="form-label">Service Offers</label>
+        <input type="tel" class="form-control" name="services_offers" id="exampleFormControlInput1" placeholder="Eye check up">
+      </div>
+      <div class="col-md-4">
+        <label for="exampleFormControlInput1" class="form-label">Password</label>
+        <input type="password" class="form-control" name="password" id="exampleFormControlInput1" placeholder="Hem@123!#">
+      </div>
+      <div class="col-md-4">
+        <label for="exampleFormControlInput1" class="form-label">Confirm Password</label>
+        <input type="password" class="form-control" name="cpassword" id="exampleFormControlInput1" placeholder="Hem@123!#">
+      </div>
+    <div class="col-md-4">
+      <label for="validationCustom04" class="form-label">District</label>
+      {% comment %} <select class="form-select" id="validationCustom04" required>
+        <option selected disabled value="">Choose...</option>
+        <option>...</option>
+      </select> {% endcomment %}
+      <select class="form-control"  name="district" required="required">
+        %{--Mechi--}%
+        <option value="">--Select District--</option>
+        <option value="Taplejung">Taplejung</option>
+        <option value="Panchthar">Panchthar</option>
+        <option value="Ilam">Ilam</option>
+        <option value="Jhapa">Jhapa</option>
+        %{--Koshi--}%
+        <option value="Morang">Morang</option>
+        <option value="Sunsari">Sunsari</option>
+        <option value="Dhankutta">Dhankutta</option>
+        <option value="Sankhuwasabha">Sankhuwasabha</option>
+        <option value="Bhojpur">Bhojpur</option>
+        <option value="Terhathum">Terhathum</option>
+        %{--Sagarmatha--}%
+        <option value="Okhaldunga">Okhaldunga</option>
+        <option value="Khotang">Khotang</option>
+        <option value="Solukhumbu">Solukhumbu</option>
+        <option value="Udaypur">Udaypur</option>
+        <option value="Saptari">Saptari</option>
+        <option value="Siraha">Siraha</option>
+        %{--Janakpur--}%
+        <option value="Dhanusa">Dhanusa</option>
+        <option value="Mahottari">Mahottari</option>
+        <option value="Sarlahi">Sarlahi</option>
+        <option value="Sindhuli">Sindhuli</option>
+        <option value="Ramechhap">Ramechhap</option>
+        <option value="Dolkha">Dolkha</option>
+        %{--Bagmati--}%
+        <option value="Sindhupalchauk">Sindhupalchauk</option>
+        <option value="Kavreplanchauk">Kavreplanchauk</option>
+        <option value="Lalitpur">Lalitpur</option>
+        <option value="Bhaktapur">Bhaktapur</option>
+        <option value="Kathmandu">Kathmandu</option>
+        <option value="Nuwakot">Nuwakot</option>
+        <option value="Rasuwa">Rasuwa</option>
+        <option value="Dhading">Dhading</option>
+        %{--Narayani--}%
+        <option value="Makwanpur">Makwanpur</option>
+        <option value="Rauthat">Rauthat</option>
+        <option value="Bara">Bara</option>
+        <option value="Parsa">Parsa</option>
+        <option value="Chitwan">Chitwan</option>
+        %{--Gandaki--}%
+        <option value="Gorkha">Gorkha</option>
+        <option value="Lamjung">Lamjung</option>
+        <option value="Tanahun">Tanahun</option>
+        <option value="Tanahun">Tanahun</option>
+        <option value="Syangja">Syangja</option>
+        <option value="Kaski">Kaski</option>
+        <option value="Manag">Manag</option>
+        %{--Dhawalagiri--}%
+        <option value="Mustang">Mustang</option>
+        <option value="Parwat">Parwat</option>
+        <option value="Myagdi">Myagdi</option>
+        <option value="Myagdi">Myagdi</option>
+        <option value="Baglung">Baglung</option>
+        %{--Lumbini--}%
+        <option value="Gulmi">Gulmi</option>
+        <option value="Palpa">Palpa</option>
+        <option value="Nawalparasi">Nawalparasi</option>
+        <option value="Rupandehi">Rupandehi</option>
+        <option value="Arghakhanchi">Arghakhanchi</option>
+        <option value="Kapilvastu">Kapilvastu</option>
+        %{--Rapti--}%
+        <option value="Pyuthan">Pyuthan</option>
+        <option value="Rolpa">Rolpa</option>
+        <option value="Rukum">Rukum</option>
+        <option value="Salyan">Salyan</option>
+        <option value="Dang">Dang</option>
+        %{--Bheri--}%
+        <option value="Bardiya">Bardiya</option>
+        <option value="Surkhet">Surkhet</option>
+        <option value="Dailekh">Dailekh</option>
+        <option value="Banke">Banke</option>
+        <option value="Jajarkot">Jajarkot</option>
+        %{--Karnali--}%
+        <option value="Dolpa">Dolpa</option>
+        <option value="Humla">Humla</option>
+        <option value="Kalikot">Kalikot</option>
+        <option value="Mugu">Mugu</option>
+        <option value="Jumla">Jumla</option>
+        %{--Seti--}%
+        <option value="Bajura">Bajura</option>
+        <option value="Bajhang">Bajhang</option>
+        <option value="Achham">Achham</option>
+        <option value="Doti">Doti</option>
+        <option value="Kailali">Kailali</option>
+        %{--Mahakali--}%
+        <option value="Kanchanpur">Kanchanpur</option>
+        <option value="Dadeldhura">Dadeldhura</option>
+        <option value="Baitadi">Baitadi</option>
+        <option value="Darchula">Darchula</option>
+    </select>
+     </div>
+     <div class="col-md-4">
+      <label for="exampleFormControlInput1"  class="form-label">Latitude</label>
+      <input type="number" class="form-control" id="latitude" name="lat" id="exampleFormControlInput1" placeholder="" value="">
+    </div>
+    <div class="col-md-4">
+      <label for="exampleFormControlInput1"  class="form-label">Longitude</label>
+      <input type="number" class="form-control" id="longitude" name="lng" id="exampleFormControlInput1" placeholder="" value="">
+    </div>
+   
+    <div >
+      <button type="button" class="btn btn-primary" onclick="myFunction()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+      <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+      </svg>
+    </button>
+     </div>
+
+   
+       
+ 
+    
+  
+      <button class="btn btn-primary" type="submit">Submit form</button>
+    
+   <center>
+  {% if msg%}
+    <div class="alert alert-danger" role="alert">
+      {{msg}}
+    </div>
+    {%endif%}
+   </center>
+  </form>
+
+  <script>
+
+
+    function myFunction() {
+  
+  
+     if(!navigator.geolocation)
+    {
+        console.log("your browser does not support geolocation service")
+    }
+    
+    else{
+       navigator.geolocation.getCurrentPosition(getPosition)
+        }
+    
+        function getPosition(position) {
+        console.log(position)
+        var lat = position.coords.latitude;
+        var lng = position.coords.longitude;
+        document.getElementById("latitude").value = lat;
+        document.getElementById("longitude").value = lng;
+  
+    }
+  
+  }
+   
+    
+    
+    </script>
+
+{% endblock %}

@@ -1,0 +1,8 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+#map{
+    width: 100%;
+    height:calc(100vh - 206px);
+}
