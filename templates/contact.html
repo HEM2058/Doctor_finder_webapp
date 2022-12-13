@@ -1,0 +1,39 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static '/contact.css' %}">
+<div class="container">
+    <div class="contact-box">
+        <div class="left"></div>
+			<div class="right">
+<form onsubmit="sendEmail(); reset(); return false;">
+
+			
+				<h2>Contact to {{user.fname}} {{user.lname}}</h2>
+				<input type="text" class="field" id="name" placeholder="Your Name">
+				<input type="text" class="field" id="email" placeholder="Your Email">
+				<input type="text" class="field" id="phone" placeholder="Phone">
+				<textarea placeholder="Message" id="message" class="field"></textarea>
+				<button type="submit" class="btn">Send</button>
+			</div> 
+</form>
+</div> 
+</div> 
+</div> 
+</div> 
+
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+<script>
+    function sendEmail(){
+        Email.send({
+    Host : "smtp.elasticemail.com",
+    Username : "hemrajpandeyd@gmail.com",
+    Password : "387D287EB3688C2EDD8441711C9696CFBB30",
+    To : "{{user.email}}",
+    From : document.getElementById("email").value,
+    Subject : "Message from patient "+document.getElementById("name").value,
+    Body : "Name: " + document.getElementById("name").value + "<br> Email: " + document.getElementById("email").value + "<br> Phone: " + document.getElementById("phone").value + "<br> Message: " + document.getElementById("message").value
+}).then(
+  message => alert("Message sent successfully")
+)
+    };
+</script>

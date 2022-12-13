@@ -23,8 +23,6 @@ var googleHybrid = L.tileLayer('http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z=
     subdomains:['mt0','mt1','mt2','mt3']
 });
 
-var img ='\static\Doctor_marker.png' 
-console.log(img)
 
 // var marker = L.marker([28.2096, 83.9856]).addTo(map)
 //     .bindPopup(' I am at Pokhara')
@@ -40,7 +38,8 @@ var baseMap = {
 };
 L.control.layers(baseMap).addTo(map);
 
-
+//adding search bar
+L.Control.geocoder().addTo(map);
 
 //adding geojason file
 
